@@ -1,4 +1,4 @@
-FROM jupyter/minimal-notebook:x86_64-python-3.11.6
+FROM jupyter/minimal-notebook:x86_64-2022-10-09
 
 MAINTAINER Mainak Jas <mjas@mgh.harvard.edu>
 
@@ -24,7 +24,6 @@ RUN pip install --upgrade pip
 # *********************As User ***************************
 USER $NB_UID
 
-
 RUN pip install --upgrade pip
 
 # *********************Extensions ***************************
@@ -35,7 +34,8 @@ RUN apt-get install -yq --no-install-recommends \
     xvfb \
     x11-utils \
     libx11-dev \
-    qt5-default \
+    qtbase5-dev \
+    qt5-qmake \
     && apt-get clean
 
 ENV DISPLAY=:99
