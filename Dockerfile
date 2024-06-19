@@ -55,8 +55,5 @@ RUN pip install mne && \
 
 RUN ipython -c "import mne; print(mne.datasets.sample.data_path(verbose=False))"
 
-RUN git clone https://github.com/jasmainak/mne-workshop-mit.git && \
-    cd mne-workshop-mit
-
 # Add an x-server to the entrypoint. This is needed by Mayavi
 ENTRYPOINT ["tini", "-g", "--", "xvfb-run"]
