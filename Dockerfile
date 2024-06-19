@@ -54,7 +54,8 @@ RUN pip install ipywidgets && \
     pip install pillow && \
     pip install scikit-learn && \
     pip install nibabel && \
-    pip install mne && nbgitpuller
+    pip install mne && \
+    pip install nbgitpuller
 
 RUN ipython -c "import mne; print(mne.datasets.sample.data_path(verbose=False))"
 
