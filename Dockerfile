@@ -1,4 +1,4 @@
-FROM jupyter/minimal-notebook:65761486d5d3 
+FROM jupyter/minimal-notebook:x86_64-python-3.11.6
 
 MAINTAINER Mainak Jas <mjas@mgh.harvard.edu>
 
@@ -50,11 +50,7 @@ RUN pip install vtk && \
     pip install pyvista
 
     
-RUN pip install ipywidgets && \
-    pip install pillow && \
-    pip install scikit-learn && \
-    pip install nibabel && \
-    pip install mne && \
+RUN pip install mne && \
     pip install nbgitpuller
 
 RUN ipython -c "import mne; print(mne.datasets.sample.data_path(verbose=False))"
