@@ -16,11 +16,6 @@ RUN apt-get update && apt-get -yq dist-upgrade \
     gcc \
     && apt-get clean
 
-USER $NB_UID
-
-
-RUN pip install --upgrade pip
-
 # *********************As User ***************************
 USER $NB_UID
 
@@ -40,14 +35,18 @@ RUN apt-get install -yq --no-install-recommends \
 
 ENV DISPLAY=:99
 
-USER ${NB_UID}
+USER $NB_UID
 
 RUN pip install vtk && \
     pip install numpy && \
     pip install scipy && \
     pip install pyqt5 && \
     pip install xvfbwrapper && \
-    pip install pyvista
+    pip install pyvista && \
+    pip install pyvistaqt && \
+    pip install nibabel && \
+    pip install ipyevents && \
+    pip install darkdetect
 
     
 RUN pip install mne && \
