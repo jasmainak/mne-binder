@@ -48,7 +48,12 @@ RUN pip install vtk && \
     pip install ipyevents && \
     pip install darkdetect
 
-    
+RUN pip install 'jupyterlab>=3' ipywidgets 'pyvista[all,trame]'
+
+ENV PYVISTA_TRAME_SERVER_PROXY_PREFIX='/proxy/'
+
+ENV JUPYTERHUB_SERVICE_PREFIX='/proxy/'
+
 RUN pip install mne && \
     pip install scikit-learn && \
     pip install nbgitpuller
